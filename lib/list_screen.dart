@@ -9,12 +9,14 @@ class ListScreen extends StatefulWidget {
 class _ListScreenState extends State<ListScreen> {
   final _pairList = <WordPair>[WordPair.random()];
   final _biggerFont = const TextStyle(fontSize: 18.0);
+  final _itemFetcher = _ItemFetcher();
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: _pairList.length,
       itemBuilder: (BuildContext context, int index) {
+        // TODO: Display the list items and load more when needed
         return ListTile(
           leading: Text(index.toString(), style: _biggerFont),
           title: Text(_pairList[index].asPascalCase, style: _biggerFont),
